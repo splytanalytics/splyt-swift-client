@@ -1,1 +1,0 @@
-# splyt-swift-client
