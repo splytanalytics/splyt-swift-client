@@ -9,7 +9,7 @@ import Foundation
 
 
 public class DataCollectorNewDeviceRequest: JSONEncodable {
-    /** Unique ID of the device triggering the event */
+    /** Unique ID of the new device */
     public var deviceId: String?
     /** A key/value list of properties for this event. Values can be numerical, strings or booleans, proper typing matters (quoted vs unquoted) */
     public var eventProperties: AnyObject?
