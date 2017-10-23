@@ -17,14 +17,14 @@ public class DataCollectorEndTransactionRequest: JSONEncodable {
     public var eventTimestamp: Int64?
     /** Specifies the canonical model name of the request. Ex: DataCollectorNewUserRequest -&gt; newUser, NewEventRequest -&gt; newEvent,e tc */
     public var requestType: String?
-    /** The outcome of the transaction. Can be anything from a code to a word to a boolean depending on your neeeds. Ex: success, 200, invalid, insufficient_funds, etc */
-    public var result: String?
     /** Epoch timestamp &lt;i&gt;in milliseconds&lt;/i&gt; of when event was sent to the API */
     public var sendTimestamp: Int64?
-    /** Unique transaction ID */
-    public var transactionId: String?
     /** Unique ID of the user triggering the event */
     public var userId: String?
+    /** The outcome of the transaction. Can be anything from a code to a word to a boolean depending on your neeeds. Ex: success, 200, invalid, insufficient_funds, etc */
+    public var result: String?
+    /** Unique transaction ID */
+    public var transactionId: String?
     /** The name/type of the transaction */
     public var category: String?
 
@@ -37,10 +37,10 @@ public class DataCollectorEndTransactionRequest: JSONEncodable {
         nillableDictionary["event_properties"] = self.eventProperties
         nillableDictionary["event_timestamp"] = self.eventTimestamp?.encodeToJSON()
         nillableDictionary["request_type"] = self.requestType
-        nillableDictionary["result"] = self.result
         nillableDictionary["send_timestamp"] = self.sendTimestamp?.encodeToJSON()
-        nillableDictionary["transaction_id"] = self.transactionId
         nillableDictionary["user_id"] = self.userId
+        nillableDictionary["result"] = self.result
+        nillableDictionary["transaction_id"] = self.transactionId
         nillableDictionary["category"] = self.category
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary

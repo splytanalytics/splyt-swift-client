@@ -210,10 +210,10 @@ class Decoders {
                 instance.eventTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["event_timestamp"])
                 instance.requestType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["request_type"])
                 instance.sendTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["send_timestamp"])
+                instance.userId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user_id"])
                 instance.timeout = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["timeout"])
                 instance.timeoutMode = DataCollectorBeginTransactionRequest.TimeoutMode(rawValue: (sourceDictionary["timeout_mode"] as? String) ?? "") 
                 instance.transactionId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["transaction_id"])
-                instance.userId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user_id"])
                 instance.category = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["category"])
                 return instance
             }
@@ -231,10 +231,10 @@ class Decoders {
                 instance.eventProperties = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["event_properties"])
                 instance.eventTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["event_timestamp"])
                 instance.requestType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["request_type"])
-                instance.result = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["result"])
                 instance.sendTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["send_timestamp"])
-                instance.transactionId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["transaction_id"])
                 instance.userId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user_id"])
+                instance.result = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["result"])
+                instance.transactionId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["transaction_id"])
                 instance.category = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["category"])
                 return instance
             }
@@ -284,13 +284,13 @@ class Decoders {
             Decoders.addDecoder(clazz: DataCollectorTuneRequest.self) { (source: AnyObject) -> DataCollectorTuneRequest in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = DataCollectorTuneRequest()
-                instance.campaignName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["campaign_name"])
                 instance.deviceId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["device_id"])
                 instance.eventProperties = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["event_properties"])
                 instance.eventTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["event_timestamp"])
                 instance.requestType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["request_type"])
                 instance.sendTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["send_timestamp"])
                 instance.userId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user_id"])
+                instance.campaignName = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["campaign_name"])
                 return instance
             }
 
@@ -303,16 +303,16 @@ class Decoders {
             Decoders.addDecoder(clazz: DataCollectorUpdateCollectionRequest.self) { (source: AnyObject) -> DataCollectorUpdateCollectionRequest in
                 let sourceDictionary = source as! [NSObject:AnyObject]
                 let instance = DataCollectorUpdateCollectionRequest()
-                instance.balance = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["balance"])
-                instance.balanceModification = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["balance_modification"])
-                instance.currency = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["currency"])
                 instance.deviceId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["device_id"])
                 instance.eventProperties = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["event_properties"])
                 instance.eventTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["event_timestamp"])
-                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
                 instance.requestType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["request_type"])
                 instance.sendTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["send_timestamp"])
                 instance.userId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user_id"])
+                instance.balance = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["balance"])
+                instance.balanceModification = Decoders.decodeOptional(clazz: Double.self, source: sourceDictionary["balance_modification"])
+                instance.currency = Decoders.decodeOptional(clazz: Bool.self, source: sourceDictionary["currency"])
+                instance.name = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["name"])
                 return instance
             }
 
@@ -346,11 +346,11 @@ class Decoders {
                 instance.deviceId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["device_id"])
                 instance.eventProperties = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["event_properties"])
                 instance.eventTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["event_timestamp"])
-                instance.progress = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["progress"])
                 instance.requestType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["request_type"])
                 instance.sendTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["send_timestamp"])
-                instance.transactionId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["transaction_id"])
                 instance.userId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user_id"])
+                instance.progress = Decoders.decodeOptional(clazz: Int32.self, source: sourceDictionary["progress"])
+                instance.transactionId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["transaction_id"])
                 instance.category = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["category"])
                 return instance
             }
@@ -386,10 +386,10 @@ class Decoders {
                 instance.eventProperties = Decoders.decodeOptional(clazz: AnyObject.self, source: sourceDictionary["event_properties"])
                 instance.eventTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["event_timestamp"])
                 instance.requestType = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["request_type"])
-                instance.result = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["result"])
                 instance.sendTimestamp = Decoders.decodeOptional(clazz: Int64.self, source: sourceDictionary["send_timestamp"])
-                instance.transactionId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["transaction_id"])
                 instance.userId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["user_id"])
+                instance.result = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["result"])
+                instance.transactionId = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["transaction_id"])
                 instance.category = Decoders.decodeOptional(clazz: String.self, source: sourceDictionary["category"])
                 return instance
             }

@@ -19,7 +19,7 @@ public class DataCollectorNewUserRequest: JSONEncodable {
     public var requestType: String?
     /** Epoch timestamp &lt;i&gt;in milliseconds&lt;/i&gt; of when event was sent to the API */
     public var sendTimestamp: Int64?
-    /** Unique ID of the new user */
+    /** Unique ID of the user triggering the event */
     public var userId: String?
 
     public init() {}

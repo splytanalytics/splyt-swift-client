@@ -9,9 +9,7 @@ import Foundation
 
 
 public class DataCollectorTuneRequest: JSONEncodable {
-    /** Name of the campaign being tracked */
-    public var campaignName: String?
-    /** Unique ID of the device */
+    /** Unique ID of the device triggering the event */
     public var deviceId: String?
     /** A key/value list of properties for this event. Values can be numerical, strings or booleans, proper typing matters (quoted vs unquoted) */
     public var eventProperties: AnyObject?
@@ -23,19 +21,21 @@ public class DataCollectorTuneRequest: JSONEncodable {
     public var sendTimestamp: Int64?
     /** Unique ID of the user triggering the event */
     public var userId: String?
+    /** Name of the campaign being tracked */
+    public var campaignName: String?
 
     public init() {}
 
     // MARK: JSONEncodable
     func encodeToJSON() -> AnyObject {
         var nillableDictionary = [String:AnyObject?]()
-        nillableDictionary["campaign_name"] = self.campaignName
         nillableDictionary["device_id"] = self.deviceId
         nillableDictionary["event_properties"] = self.eventProperties
         nillableDictionary["event_timestamp"] = self.eventTimestamp?.encodeToJSON()
         nillableDictionary["request_type"] = self.requestType
         nillableDictionary["send_timestamp"] = self.sendTimestamp?.encodeToJSON()
         nillableDictionary["user_id"] = self.userId
+        nillableDictionary["campaign_name"] = self.campaignName
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
     }

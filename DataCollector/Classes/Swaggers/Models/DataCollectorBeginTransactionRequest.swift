@@ -23,14 +23,14 @@ public class DataCollectorBeginTransactionRequest: JSONEncodable {
     public var requestType: String?
     /** Epoch timestamp &lt;i&gt;in milliseconds&lt;/i&gt; of when event was sent to the API */
     public var sendTimestamp: Int64?
+    /** Unique ID of the user triggering the event */
+    public var userId: String?
     /** Timeout (in seconds) for the transaction */
     public var timeout: Int32?
     /** Timeout mode for the transaction. With TXN, the timeout is reset when an update is posted to the same transaction. With ANY, the timeout is reset when an update is posted for any transaction w/ the same user/device */
     public var timeoutMode: TimeoutMode?
     /** Unique transaction ID */
     public var transactionId: String?
-    /** Unique ID of the user triggering the event */
-    public var userId: String?
     /** The name/type of the transaction */
     public var category: String?
 
@@ -44,10 +44,10 @@ public class DataCollectorBeginTransactionRequest: JSONEncodable {
         nillableDictionary["event_timestamp"] = self.eventTimestamp?.encodeToJSON()
         nillableDictionary["request_type"] = self.requestType
         nillableDictionary["send_timestamp"] = self.sendTimestamp?.encodeToJSON()
+        nillableDictionary["user_id"] = self.userId
         nillableDictionary["timeout"] = self.timeout?.encodeToJSON()
         nillableDictionary["timeout_mode"] = self.timeoutMode?.rawValue
         nillableDictionary["transaction_id"] = self.transactionId
-        nillableDictionary["user_id"] = self.userId
         nillableDictionary["category"] = self.category
         let dictionary: [String:AnyObject] = APIHelper.rejectNil(nillableDictionary) ?? [:]
         return dictionary
